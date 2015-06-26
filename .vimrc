@@ -293,7 +293,7 @@ endif
 
 " theme主题
 set background=dark
-"set t_Co=256
+set t_Co=256
 
 "colorscheme molokai
 "colorscheme solarized
@@ -302,9 +302,9 @@ colorscheme blue
 
 
 "设置标记一列的背景颜色和数字一行颜色一致
-"hi! link SignColumn   LineNr
-"hi! link ShowMarksHLl DiffAdd
-"hi! link ShowMarksHLu DiffChange
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
 
 "" for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
