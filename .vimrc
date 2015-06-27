@@ -25,19 +25,20 @@ set nobackup
 set noswapfile
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
-" 突出显示当前行等
-set cursorcolumn
-set cursorline          " 突出显示当前行
+" 突出显示当前行等, 因为主题问题暂时不用
+"set cursorcolumn
+"set cursorline          " 突出显示当前行
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
 "好处：误删什么的，如果以前屏幕打开，可以找回
-set t_ti= t_te=
+"set t_ti= t_te=
 
 "使用鼠标
 if has('mouse')
     set mouse=a
 endif
 
+"cygwin下必须开启这个才能用鼠标右键操作，其他平台未测试
 set mouse=
 
 " 去掉输入错误的提示声音
@@ -62,15 +63,15 @@ set showcmd
 set showmode
 
 " 在上下移动光标时，光标的上方或下方至少会保留显示的行数
-set scrolloff=7
+set scrolloff=5
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line - use 2 lines for the status bar
 set laststatus=2
 
-"显示行号：
-set number
+" 显示行号： 默认关闭，按F12打开
+"set number
 " 取消换行。
 set nowrap
 
@@ -98,10 +99,10 @@ set foldenable
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
-vnoremap <space> zf
+set foldmethod=manual
+set foldlevel=2
+"nnoremap <space> za
+"vnoremap <space> zf
 
 " 缩进配置
 
@@ -200,6 +201,17 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+
+"允许鼠标，在gvim中work，待测试
+set mousefocus
+
+"快速的放大缩小窗口的快捷键 + -
+map _ <C-W>-
+map + <C-W>+
+"快速的放大缩小横向窗口的快捷键 < > 
+map < <C-W><
+map > <C-W>>
 
 " Go to home and end using capitalized directions
 noremap H ^
