@@ -172,16 +172,20 @@ endif
 noremap <F1> <Esc>"
 
 ""为方便复制，用<F2>开启/关闭行号显示:
-function! HideNumber()
-  if(&relativenumber == &number)
-    set relativenumber! number!
-  elseif(&number)
-    set number!
-  else
-    set relativenumber!
-  endif
-  set number?
-endfunc
+"function! HideNumber()
+"  if(&relativenumber == &number)
+"    set relativenumber! number!
+"  elseif(&number)
+"    set number!
+"  else
+"    set relativenumber!
+"  endif
+"  set number?
+"endfunc
+
+"因为<F2>和screen的快捷键冲突，改成<F12>
+nmap <F12> :set invnumber<CR>
+
 "set paste mode
 set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
                                 "    paste mode, where you can paste mass data
@@ -298,6 +302,7 @@ set t_Co=256
 "colorscheme molokai
 "colorscheme solarized
 "colorscheme desert
+"colorscheme delek
 colorscheme blue
 
 
