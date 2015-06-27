@@ -39,7 +39,9 @@ if has('mouse')
 endif
 
 "cygwin下必须开启这个才能用鼠标右键操作，其他平台未测试
-set mouse=
+"set mouse=
+"设置成n可以用鼠标选择光标
+set mouse=n
 
 " 去掉输入错误的提示声音
 set title                " change the terminal's title
@@ -99,8 +101,8 @@ set foldenable
 " syntax    使用语法定义折叠
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
-set foldmethod=manual
-set foldlevel=2
+set foldmethod=indent
+set foldlevel=99
 "nnoremap <space> za
 "vnoremap <space> zf
 
@@ -196,15 +198,14 @@ set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
 au InsertLeave * set nopaste
 " nnoremap <F6> :call HideNumber()<CR>
 
+"允许鼠标，在gvim中work，待测试
+"set mousefocus
+
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-
-"允许鼠标，在gvim中work，待测试
-set mousefocus
 
 "快速的放大缩小窗口的快捷键 + -
 map _ <C-W>-
@@ -212,6 +213,23 @@ map + <C-W>+
 "快速的放大缩小横向窗口的快捷键 < > 
 map < <C-W><
 map > <C-W>>
+
+" Resize the current split to at least (90,25) but no more than (140,60)
+" or 2/3 of the available space otherwise.
+
+function Splitresize()
+    let hmax = max([winwidth(0), float2nr(&columns*0.66), 90])
+    let vmax = max([winheight(0), float2nr(&lines*0.66), 25])
+    exe "vertical resize" . (min([hmax, 140]))
+    exe "resize" . (min([vmax, 60]))
+endfunction
+
+" move between splits without the ctrl-w prefix
+
+nnoremap <silent><C-J> <C-W><C-J>:call Splitresize()<CR>
+nnoremap <silent><C-K> <C-W><C-K>:call Splitresize()<CR>
+nnoremap <silent><C-L> <C-W><C-L>:call Splitresize()<CR>
+nnoremap <silent><C-H> <C-W><C-H>:call Splitresize()<CR>
 
 " Go to home and end using capitalized directions
 noremap H ^
