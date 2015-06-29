@@ -16,6 +16,7 @@ filetype plugin on
 " 启用自动补全
 filetype plugin indent on
 
+" <leader>键
 let mapleader = "\\"
 
 " 文件修改后自动重载
@@ -282,6 +283,8 @@ map <C-n> :tabnew<cr>
 map <C-h> :tabprevious<cr>
 map <C-l> :tabnext<cr>
 map <C-t> :tabedit 
+map <C-a> :tab all<cr>
+
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
