@@ -279,11 +279,11 @@ noremap <silent><leader>/ :nohls<CR>
 "map <leader>m :tabmove
 "map <leader>h :tabprevious<cr>
 "map <leader>l :tabnext<cr>
-map <C-n> :tabnew<cr>
-map <C-[> :tabprevious<cr>
-map <C-]> :tabnext<cr>
-map <C-t> :tabedit 
-map <C-a> :tab all<cr>
+"map <C-n> :tabnew<cr>
+"map <C-> :tabprevious<cr>
+"map <C-h]> :tabnext<cr>
+"map <C-l> :tabedit 
+"map <C-a> :tab all<cr>
 
 
 " Opens a new tab with the current buffer's path
