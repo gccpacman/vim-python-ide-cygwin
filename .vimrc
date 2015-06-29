@@ -16,7 +16,7 @@ filetype plugin on
 " 启用自动补全
 filetype plugin indent on
 
-let mapleader = " "
+let mapleader = "\\"
 
 " 文件修改后自动重载
 set autoread
