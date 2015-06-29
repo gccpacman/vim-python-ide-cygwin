@@ -455,3 +455,5 @@ au Syntax * RainbowParenthesesLoadBraces
 "noremap <leader>jd :YcmCompleter GoToDefinition<CR>
 "noremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
+"set tags=~/mytags
+
