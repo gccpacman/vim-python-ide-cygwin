@@ -206,8 +206,8 @@ au InsertLeave * set nopaste
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+"map <C-h> <C-W>h
+"map <C-l> <C-W>l
 
 "快速的放大缩小窗口的快捷键 + -
 map _ <C-W>-
@@ -271,17 +271,22 @@ noremap <silent><leader>/ :nohls<CR>
 " map <leader>to :tabonly<cr>
 " map <leader>tc :tabclose<cr>
 " map <leader>tm :tabmove
-map <leader>n :tabnew<cr>
-map <leader>o :tabonly<cr>
-map <leader>c :tabclose<cr>
-map <leader>m :tabmove
-map <leader>h :tabprevious<cr>
-map <leader>l :tabnext<cr>
 
+"map <leader>n :tabnew<cr>
+"map <leader>o :tabonly<cr>
+"map <leader>c :tabclose<cr>
+"map <leader>m :tabmove
+"map <leader>h :tabprevious<cr>
+"map <leader>l :tabnext<cr>
+map <C-n> :tabnew<cr>
+map <C-h> :tabprevious<cr>
+map <C-l> :tabnext<cr>
+map <C-t> :tabedit 
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+"map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+"map <C-d><C-e> :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " select all
 map <Leader>sa ggVG"
