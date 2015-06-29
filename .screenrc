@@ -39,12 +39,20 @@ msgwait 1
 #bindkey -k F2 next
 
 ##Byobu compatible
-bindkey -k k6 detach
+# bindkey -k k6 detach
 # space in keyboard
-bindkey -k k2 screen
-bindkey -k k8 title
-bindkey -k k3 prev
-bindkey -k k4 next
+# bindkey -k k2 screen
+# bindkey -k k8 title
+# bindkey -k k3 prev
+# bindkey -k k4 next
+
+# ctrl up to start a new screen
+# ctrl down to nename a screen
+bindkey ^[[1;5A screen
+bindkey ^[[1;5B title
+# ctrl right and left arrows to switch screen
+bindkey ^[[1;5D prev
+bindkey ^[[1;5C next
 
 #escape ^``
 #escape ^}}

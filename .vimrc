@@ -16,6 +16,8 @@ filetype plugin on
 " 启用自动补全
 filetype plugin indent on
 
+let mapleader = " "
+
 " 文件修改后自动重载
 set autoread
 
@@ -265,10 +267,17 @@ noremap <silent><leader>/ :nohls<CR>
 " noremap <left> :bp<CR>
 " noremap <right> :bn<CR>
 
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
+" map <leader>tn :tabnew<cr>
+" map <leader>to :tabonly<cr>
+" map <leader>tc :tabclose<cr>
+" map <leader>tm :tabmove
+map <leader>n :tabnew<cr>
+map <leader>o :tabonly<cr>
+map <leader>c :tabclose<cr>
+map <leader>m :tabmove
+map <leader>h :tabprevious<cr>
+map <leader>l :tabnext<cr>
+
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -437,3 +446,4 @@ au Syntax * RainbowParenthesesLoadBraces
 
 "noremap <leader>jd :YcmCompleter GoToDefinition<CR>
 "noremap <leader>gd :YcmCompleter GoToDeclaration<CR>
+
