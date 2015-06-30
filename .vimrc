@@ -439,12 +439,7 @@ py << EOF
 
 from os.path import expanduser
 home = expanduser("~")
-sys.path.insert(0, '%s/spider/' % (home))
-sys.path.insert(0, '%s/frontend/' % (home))
-sys.path.insert(0, '%s/opensdk/' % (home))
-sys.path.insert(0, '%s/comm_lib/' % (home))
-sys.path.insert(0, '%s/backends/' % (home))
-sys.path.insert(0, '%s/Algorithm/' % (home))
+sys.path.insert(0, '%s/' % (home))
 
 import os.path
 import sys
