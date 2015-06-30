@@ -1,77 +1,10 @@
+" Pathogen load
+call pathogen#infect()
+call pathogen#helptags()
+
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" The bundles you install will be listed here
-
-filetype plugin indent on
-
-" The rest of your config follows here
-
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 120
-    autocmd FileType python highlight Excess ctermbg=DarkGray guibg=Black
-    autocmd FileType python match Excess /\%120v.*/
-    autocmd FileType python set nowrap
-    augroup END
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-" Powerline setup
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-set laststatus=2
-
-" Pathogen load
-call pathogen#infect()
-call pathogen#helptags()
-
-" always show tab line in gvim
-" 总是显示tab
-set showtabline=2
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-" The bundles you install will be listed here
-
-filetype plugin indent on
-
-" The rest of your config follows here
-
-augroup vimrc_autocmds
-    autocmd!
-    " highlight characters past column 120
-    autocmd FileType python highlight Excess ctermbg=DarkGray guibg=Black
-    autocmd FileType python match Excess /\%120v.*/
-    autocmd FileType python set nowrap
-    augroup END
-
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
-" Powerline setup
-set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 9
-set laststatus=2
-
-" Pathogen load
-call pathogen#infect()
-call pathogen#helptags()
-
-" always show tab line in gvim
-" 总是显示tab
-set showtabline=2
-
-
+" 语法高亮
 syntax on
 
 " 检测文件类型
@@ -83,8 +16,8 @@ filetype plugin on
 " 启用自动补全
 filetype plugin indent on
 
-"let mapleader = "\\"
-let mapleader = " "
+" <leader>键
+let mapleader = "\\"
 
 " 文件修改后自动重载
 set autoread
@@ -102,7 +35,6 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
 "好处：误删什么的，如果以前屏幕打开，可以找回
 "set t_ti= t_te=
-
 
 "使用鼠标
 if has('mouse')
@@ -140,6 +72,8 @@ set scrolloff=5
 
 " 命令行（在状态行下）的高度，默认为1，这里是2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
+" Always show the status line - use 2 lines for the status bar
+set laststatus=2
 
 " 显示行号： 默认关闭，按F12打开
 "set number
@@ -185,7 +119,7 @@ set autoindent    " 打开自动缩进
 set tabstop=4     " 设置Tab键的宽度        [等同的空格个数]
 set shiftwidth=4  " 每一次缩进对应的空格数
 set softtabstop=4 " 按退格键时可以一次删掉 4 个空格
-set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空>
+set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
 set expandtab     " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 set shiftround    " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 
@@ -279,7 +213,7 @@ map <C-l> <C-W>l
 "快速的放大缩小窗口的快捷键 + -
 map _ <C-W>-
 map + <C-W>+
-"快速的放大缩小横向窗口的快捷键 < >
+"快速的放大缩小横向窗口的快捷键 < > 
 map < <C-W><
 map > <C-W>>
 
@@ -314,10 +248,6 @@ cnoremap <C-e> <End>
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 " map <space> /
-
-
-
-
 " 进入搜索Use sane regexes"
 nnoremap / /\v
 vnoremap / /\v
@@ -332,7 +262,6 @@ nnoremap <silent> g* g*zz
 " 去掉搜索高亮
 noremap <silent><leader>/ :nohls<CR>
 
-map <leader>w :nohls<cr>
 " --------tab/buffer相关
 
 "Use arrow key to change buffer"
@@ -343,20 +272,27 @@ map <leader>w :nohls<cr>
 " map <leader>to :tabonly<cr>
 " map <leader>tc :tabclose<cr>
 " map <leader>tm :tabmove
-map <leader>j :tabnew<cr>
-map <leader>o :tabonly<cr>
-map <leader>c :tabclose<cr>
-map <leader>k :tabmove
-map <leader>h :tabprevious<cr>
-map <leader>l :tabnext<cr>
+
+"map <leader>n :tabnew<cr>
+"map <leader>o :tabonly<cr>
+"map <leader>c :tabclose<cr>
+"map <leader>m :tabmove
+"map <leader>h :tabprevious<cr>
+"map <leader>l :tabnext<cr>
+"map <C-n> :tabnew<cr>
+"map <C-> :tabprevious<cr>
+"map <C-h]> :tabnext<cr>
+"map <C-l> :tabedit 
+"map <C-a> :tab all<cr>
+
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+"map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+"map <C-d><C-e> :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " select all
 map <Leader>sa ggVG"
-
 
 " select block
 nnoremap <leader>v V`}
@@ -414,14 +350,13 @@ set t_Co=256
 "colorscheme solarized
 "colorscheme desert
 "colorscheme delek
-"colorscheme blue
+colorscheme blue
 
 
 "设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
-
 
 "" for error highlight，防止错误整行标红导致看不清
 highlight clear SpellBad
@@ -436,16 +371,6 @@ highlight SpellLocal term=underline cterm=underline
 " Add the virtualenv's site-packages to vim path
 if has('python')
 py << EOF
-
-from os.path import expanduser
-home = expanduser("~")
-sys.path.insert(0, '%s/spider/' % (home))
-sys.path.insert(0, '%s/frontend/' % (home))
-sys.path.insert(0, '%s/opensdk/' % (home))
-sys.path.insert(0, '%s/comm_lib/' % (home))
-sys.path.insert(0, '%s/backends/' % (home))
-sys.path.insert(0, '%s/Algorithm/' % (home))
-
 import os.path
 import sys
 import vim
@@ -454,7 +379,6 @@ if 'VIRTUAL_ENV' in os.environ:
     sys.path.insert(0, os.path.join(project_base_dir, 'lib', 'python%d.%d' % sys.version_info[:2], 'site-packages'))
 EOF
 endif
-
 
 " jedi-vim settings
 let g:jedi#completions_enabled = 1
@@ -525,10 +449,11 @@ au Syntax * RainbowParenthesesLoadBraces
 "let g:ycm_complete_in_strings = 1
 "let g:ycm_seed_identifiers_with_syntax=1
 "let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_collect_identifiers_from_tags_files = 1
 "let g:ycm_goto_buffer_command = 'horizontal-split'
 
 "noremap <leader>jd :YcmCompleter GoToDefinition<CR>
 "noremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
-
+"set tags=~/mytags
 
